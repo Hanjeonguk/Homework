@@ -75,9 +75,28 @@ namespace LinkedList.Task2
             Console.Write("제거할 순서를 입력하세요: ");
             int kill = int.Parse(Console.ReadLine());
 
-            for (int i = 0; i < num; i++)
+            for (int i = 1; i <= num; i++)
             {
-                linkedList.AddLast(i + 1);
+                linkedList.AddLast(i);
+            }
+            while (linkedList.Count > 0)
+            {
+                for (int i = 1; i <= kill; i++)
+                {
+                    LinkedListNode<int> node = linkedList.First;
+                    if (i == kill)
+                    {
+                        linkedList.Remove(node);
+                        Console.Write($"{node.Value}");
+                    }
+                    else
+                    {
+                        linkedList.Remove(node);
+                        linkedList.AddLast(node);
+                    }
+                }
+
+
             }
 
 
